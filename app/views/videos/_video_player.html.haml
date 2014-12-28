@@ -1,0 +1,32 @@
+/%video{src: @video.video.url, controls:true}
+#jp_container_1.jp-video{"aria-label" => "media player", :role => "application"}
+  .jp-type-single
+    #jquery_jplayer_1.jp-jplayer
+    .jp-gui
+      .jp-video-play
+        %button.jp-video-play-icon{:role => "button", :tabindex => "0"} play
+      .jp-interface
+        .jp-progress
+          .jp-seek-bar
+            .jp-play-bar
+        .jp-current-time{"aria-label" => "time", :role => "timer"}  
+        .jp-duration{"aria-label" => "duration", :role => "timer"}  
+        .jp-details
+          .jp-title{"aria-label" => "title"}  
+        .jp-controls-holder
+          .jp-volume-controls
+            %button.jp-mute{:role => "button", :tabindex => "0"} mute
+            %button.jp-volume-max{:role => "button", :tabindex => "0"} max volume
+            .jp-volume-bar
+              .jp-volume-bar-value
+          .jp-controls
+            %button.jp-play{:role => "button", :tabindex => "0"} play
+            %button.jp-stop{:role => "button", :tabindex => "0"} stop
+          .jp-toggles
+            %button.jp-repeat{:role => "button", :tabindex => "0"} repeat
+            %button.jp-full-screen{:role => "button", :tabindex => "0"} full screen
+    .jp-no-solution
+      %span Update Required
+      To play the media you will need to either update your browser to a recent version or update your
+      = succeed "." do
+        %a{:href => "http://get.adobe.com/flashplayer/", :target => "_blank"} Flash plugin

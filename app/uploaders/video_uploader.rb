@@ -40,7 +40,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_white_list
     %w(
-      avi mkv mov mp4
+      avi mkv mov mp4 ogv
       gif png jpg jpeg
     )
   end

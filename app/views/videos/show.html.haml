@@ -4,7 +4,34 @@
   %b Title:
   = @video.title
 
-  %video{src: @video.video.url, controls:true}
+  = render partial: 'video_player'
+  :coffee
+     $ ->
+      video_url = "#{@video.video.url}"
+      supplied_formates = ""
+      setMedia_data =
+        title: "#{@video.title}",
+        #poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
+      if /ogv$/.test(video_url)
+        setMedia_data['ogv'] = video_url
+        supplied_formates = "ogv"
+      else
+        setMedia_data['m4v'] = video_url
+        supplied_formates = "m4v"
+
+      $("#jquery_jplayer_1").jPlayer
+        ready: -> $(this).jPlayer "setMedia", setMedia_data
+        cssSelectorAncestor: "#jp_container_1",
+        swfPath: "/js",
+        #supplied: "m4v, ogv",
+        supplied: supplied_formates,
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: true
+
 
 = link_to 'Edit', edit_video_path(@video)
 \|
