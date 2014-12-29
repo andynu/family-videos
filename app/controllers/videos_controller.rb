@@ -1,6 +1,12 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
+  # GET /videos/1/conversion_status
+  def video_conversion_status
+    @video = Video.find(params[:video_id])
+    render json: @video.video_conversion_status
+  end
+
   # GET /videos
   # GET /videos.json
   def index

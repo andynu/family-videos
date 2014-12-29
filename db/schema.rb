@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228174358) do
+ActiveRecord::Schema.define(version: 20141228225421) do
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "video",      limit: 255
+    t.string   "title",               limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "video",               limit: 255
+    t.float    "conversion_duration", limit: 53
+    t.float    "conversion_position", limit: 53
+    t.string   "conversion_status",   limit: 255
   end
 
 end

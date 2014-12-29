@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'fileutils'
 
 class VideoUploader < CarrierWave::Uploader::Base
 
@@ -30,6 +31,16 @@ class VideoUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  
+  version :ogv do
+    process :convert_to_ogv => self
+  end
+
+  def convert_to_ogv(obj)
+    self.model.save
+    VideoConversionJob.perform_later(model.id,current_path)
+  end
+
 
   # Create different versions of your uploaded files:
   # version :thumb do
