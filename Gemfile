@@ -27,6 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails', '~> 0.6.0'
 
 gem 'rails-assets-jplayer'
+gem 'resque', '~> 1.25.2'
+gem 'foreman', '~> 0.76.0'
+
+gem 'redis'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

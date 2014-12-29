@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :videos
+  resources :videos do
+    get '/conversion_status' => 'videos#video_conversion_status', as: :video_converion_status
+  end
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
