@@ -1,23 +1,22 @@
-%h1 Listing videos
+.row
+  .col-xs-12
+    #timeline
 
-#timeline
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Title
+          %th
+          %th
+          %th
+          
+      %tbody
+        - @videos.each do |video|
+          %tr
+            %td= video.title
+            %td= link_to 'Show', video
+            %td= link_to 'Edit', edit_video_path(video)
+            %td= link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @videos.each do |video|
-      %tr
-        %td= video.title
-        %td= link_to 'Show', video
-        %td= link_to 'Edit', edit_video_path(video)
-        %td= link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %br
 
-%br
-
-= link_to 'New Video', new_video_path

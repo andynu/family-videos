@@ -15,6 +15,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'font-awesome-sass'
+
 gem 'rails-assets-jplayer'
 
 gem 'resque', '~> 1.25.2'

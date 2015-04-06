@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jplayer
+//= require bootstrap
 //= require timelineJS/embed
 //= require_tree .
