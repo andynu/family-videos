@@ -18,6 +18,9 @@ class VideosController < ApplicationController
         json.array!(videos) do |video|
           json.startDate video.created_at.strftime("%Y,%m,%d")
           json.headline video.title
+          json.asset do
+            json.media url_for(video)
+          end
         end
       end
     end
