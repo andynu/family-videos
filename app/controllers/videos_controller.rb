@@ -1,3 +1,4 @@
+require 'jbuilder'
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +6,22 @@ class VideosController < ApplicationController
   def video_conversion_status
     @video = Video.find(params[:video_id])
     render json: @video.video_conversion_status
+  end
+
+  def timeline_events
+    videos = Video.all
+    json = Jbuilder.new
+    json.timeline do 
+      json.type 'default'
+      json.text 'intro text'
+      json.date do
+        json.array!(videos) do |video|
+          json.startDate video.created_at.strftime("%Y,%m,%d")
+          json.headline video.title
+        end
+      end
+    end
+    render json: json.target!
   end
 
   # GET /videos
