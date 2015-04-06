@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require jplayer
+ *= require timelineJS/timeline
  *= require_self
  */

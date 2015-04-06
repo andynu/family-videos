@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :videos do
     get '/conversion_status' => 'videos#video_conversion_status', as: :video_converion_status
   end
+  get '/timeline_events' => 'videos#timeline_events'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
